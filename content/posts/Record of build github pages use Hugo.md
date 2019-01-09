@@ -1,10 +1,10 @@
 +++
 draft = false
 date = 2019-01-08T20:40:41+08:00
-title = ""
-slug = "" 
-tags = []
-categories = []
+title = "Record of build GitHub Pages use pages"
+slug = "record-of-build-github-pages-use-hugo" 
+tags = [Hugo]
+categories = [Record]
 +++
 
 # 前期准备
