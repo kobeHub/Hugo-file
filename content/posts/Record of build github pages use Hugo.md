@@ -1,6 +1,6 @@
 +++
 draft = false
-date = 2019-01-08T12:40:41+08:00
+date = "2019-01-08"
 title = "Record of build GitHub Pages use pages"
 slug = "record-of-build-github-pages-use-hugo" 
 tags = ["Hugo", "tutorial"]
