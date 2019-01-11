@@ -5,6 +5,7 @@ theme = "hugo-coder"
 
 languagecode = "zh-CN"
 
+enableemoji = true
 paginate = 20
 canonifyurls = true
 
@@ -37,6 +38,9 @@ disqusShortname = "Inno"
 
     # Custom CSS
     custom_css = []
+
+[frontmatter]
+date = ["2019-01-08", ":default"]
 
 [[params.social]]
     name = "Github"

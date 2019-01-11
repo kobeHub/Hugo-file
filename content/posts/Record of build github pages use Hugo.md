@@ -1,7 +1,7 @@
 +++
 draft = false
-date = "2019-01-08T12:12:00+08:00"
-title = "Record of build GitHub Pages use pages"
+date = 2019-01-08T10:10:02+08:00
+title = "Record of build GitHub Pages use Hugo"
 slug = "record-of-build-github-pages-use-hugo" 
 tags = ["Hugo", "tutorial"]
 categories = ["Record"]
