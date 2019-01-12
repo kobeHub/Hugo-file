@@ -1,4 +1,4 @@
-+++ 
++++
 draft = false
 date = 2019-01-12T17:43:29+08:00
 title = "[Review] Main concept of ML"
@@ -8,7 +8,7 @@ categories = ["Machine Learning"]
 +++
 # 机器学习的一些重要概念
 
-[TOC]
+
 
 ## 1. 机器学习系统的主要操作
 
@@ -30,39 +30,39 @@ categories = ["Machine Learning"]
 
 + 模型评估**(Evaluation)**
 
-##2.机器学习的主要任务
+## 2.机器学习的主要任务
 
 有标记数据的分类**(Classification)**以及回归**(Regression)**，无标记数据进行聚簇分析**(Clustering Analysis)**,异常检测**(Anomaly Detection)**.
 
 ### 1. 学习器
 
-+ #### K-Nearest Neighbor(K-NN)
++ **K-Nearest Neighbor(K-NN)**
 
   在特征空间找到K个最近的邻居，选取数量最大的类别作为某个样本的预测类别。无需训练，适用于小数据量，非线性问题
 
-+ #### Decision Tree
++ **Decision Tree**
 
   通过每次选取最优特征进行进一步决策，构成了一组规则集组成的决策树，通过输入样本的特征进行分类任务。
 
   决策过程具有良好的可理解性，对于单一因素即可决定的预测结果的问题，可以弥补基于统计的机器学习的不足。
 
-+ #### Support Vector Machine
++ **Support Vector Machine**
 
   在特征空间选取一个超平面，使得所有样本点到超平面的总距离最小。通过定义一个间隔**(Margin)**,最大化Margin，选取一个合适的超平面用于分类任务。通过使用合适的变换核可以进行解决非线性问题。
 
   在解决小规模、非线性问题上具有优势，因为对于预测起到决定性作用的，是少数边界上的向量**(Support Vector)**
 
-+ #### 朴素贝叶斯(Naive Bayesian)
++ **朴素贝叶斯(Naive Bayesian)**
 
-+ #### Neural Networks
++ **Neural Networks**
 
-+ #### 最小二乘 (Least Squares)
++ **最小二乘 (Least Squares)**
 
-+ #### 高斯混合模型（Gaussian Mixture Model）
++ **高斯混合模型（Gaussian Mixture Model）**
 
-+ #### Hidden Markov Model
++ **Hidden Markov Model**
 
-+ ####Dynamic Bayesian Network
++ **Dynamic Bayesian Network**
 
 
 ## 3. 所使用的范式（Paradigms）
@@ -83,7 +83,7 @@ categories = ["Machine Learning"]
 
 随机森林中的基学习器的多样性不仅来自样本扰动，而且来自属性扰动，具有更高的差异度。泛化能力更强
 
-###2. 深度学习(DL)
+### 2. 深度学习(DL)
 
 ### 3.半监督学习 (Semi-supervised learning)
 
@@ -93,9 +93,9 @@ categories = ["Machine Learning"]
 
 ### 6.多标记学习 (Multi-label learning)
 
-###7.多示例学习 (Multi-instance learning)
+### 7.多示例学习 (Multi-instance learning)
 
-##4. Data and Feature
+## 4. Data and Feature
 
 + 数据：样本、实例、对象
 + 特征： 属性集
@@ -170,28 +170,28 @@ categories = ["Machine Learning"]
 + 分类任务：错误率（Error rate: **错分**样本占总体的比例）以及精度(Accuracy：**正分**样本占总体比例)
 
 + 查准率（Precision：准确率）与查全率（Recall：召回率）
-  检索出的真正例所占的比例：
-  $$
-  P = \frac{TP}{TP+FP} \\ \\ 
-  $$
-  检索出的真正例占全部正例的比例：
-  $$
-  R = \frac{TP}{TP+FN} \\ \\
-  $$
-  分类正确的比例：
-  $$
-  Acc = \frac{TP+TN}{TP+FP+TN+FN}
-  $$
+
+  + 检索出的真正例所占的比例：
+  ![](http://latex.codecogs.com/gif.latex?P=\\frac{TP}{TP+FP})
+
+  + 检索出的真正例占全部正例的比例：
+  ![](http://latex.codecogs.com/gif.latex?R=\\frac{TP}{TP+FN})
+
+  + 分类正确的比例：
+  ![](http://latex.codecogs.com/gif.latex?Acc=\\frac{TP+TN}{TP+FP+TN+FN})
 
 + ROC
 
   **Receiver Operating Characteristic**受试者工作曲线。若一个学习器的ROC曲线完全位于另一个学习器曲线下，则后者的性能较优。该曲线基于两个主要量进行绘制：真正例率（True Positive Rate），假正例率（False Positive Rate）
 
   ROC曲线下的面积AUC(Area Under ROC Curve)
-  $$
-  TPR = \frac{TP}{TP+FN} = R \\ \\
-  FPR = \frac{FP}{TN+FP}
-  $$
+
+  
+
+  ![](http://latex.codecogs.com/gif.latex?TPR=\\frac{TP+TN}{TPFN})
+
+  ![](http://latex.codecogs.com/gif.latex?FPT=\\frac{FP}{FP+TN})
+
   ![ROC](http://media.innohub.top/190112-roc.png)
 
 ## 11. 比较检验
@@ -209,3 +209,4 @@ categories = ["Machine Learning"]
 + 在训练不足时，学习器拟合能力不强，训练数据的扰动产生的影响小，此时偏差主导泛化错误率；
 + 随着训练程度加深，学习器拟合能力逐渐增强，方差逐渐主导泛化错误率
 + 训练充足后，学习器的拟合能力非常强，训练数据的轻微扰动都会导致学习器的显著变化，容易发生过拟合。
+

@@ -18,14 +18,29 @@
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              {{ i18n "readingTime" .ReadingTime }}
+              {{ $readingTime := mul (div (countwords .Content) 200) 60 }}
+              {{ $minutes := math.Floor (div $readingTime 60) }}
+              Reading time: {{ $minutes }} minutes.
             </span>
           </div>
           {{ with .Page.Params.Categories }}{{ partial "taxonomy/categories" . }}{{ end }}
           {{ with .Page.Params.Tags }}{{ partial "taxonomy/tags" . }}{{ end }}
         </div>
+        <script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+				tex2jax: {
+  					inlineMath: [['$','$'], ['\\(','\\)']],
+  					processEscapes: true
+  				}
+			});
+		</script>
+		<!--latex数学显示公式-->
+		<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       </header>
 
+      <aside>
+        {{ .TableOfContents }}
+      </aside>
       <div>
         {{ .Content }}
       </div>
