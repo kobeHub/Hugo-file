@@ -23,7 +23,7 @@ disqusShortname = "Inno"
     avatarurl = "images/avatar.jpg"
     footercontent = "It's not a bug, it's future"
 
-    dateformat = "January 2, 2019"
+    dateformat = "January 2, 2006"
 
     hideCredits = false
     hideCopyright = false
