@@ -188,7 +188,7 @@ categories = ["Machine Learning"]
 
   
 
-  ![](http://latex.codecogs.com/gif.latex?TPR=\\frac{TP+TN}{TPFN})
+  ![](http://latex.codecogs.com/gif.latex?TPR=\\frac{TP}{TP+FN}=R)
 
   ![](http://latex.codecogs.com/gif.latex?FPT=\\frac{FP}{FP+TN})
 
