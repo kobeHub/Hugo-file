@@ -37,7 +37,7 @@ categories = ["Summary"]
 
  由于使用双字节进行编码，形成了 **DBCS(Double Byte Character Set)**双字节字符集，所以才有了“一个中文算两个英文字符.........”
 
- ## 3.Unicode 码 
+##  3. Unicode 码 
 
 由于每个国家都试图编写自己的编码标准，导致了互相之间都不支持。此时，ISO着手解决了这个问题：废了所有的地区性编码方案，重新搞一个包括了地球上所有文化、所有字母和符号 的编码！他们打算叫它”Universal Multiple-Octet Coded Character Set”，简称 **UCS**, 俗称 “**unicode**“。
 
