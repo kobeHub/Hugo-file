@@ -1,5 +1,5 @@
 +++
-draft = False
+draft = false
 date = 2019-05-12T20:13:35+08:00
 title = "[Review] Introduction to Coomputer Vision"
 slug = "Introduction to Computer Vision" 
