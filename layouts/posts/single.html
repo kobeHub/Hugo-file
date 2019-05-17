@@ -5,6 +5,7 @@
   <section class="container post">
     <article>
       <header>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <div class="post-title">
           <h1 class="title">{{ .Title }}</h1>
         </div>
@@ -49,7 +50,6 @@
         {{ partial "posts/disqus" . }}
       </footer>
     </article>
-
-    {{ partial "posts/math" . }}
+    {{ partial "mathjax.html" }}
   </section>
 {{ end }}
