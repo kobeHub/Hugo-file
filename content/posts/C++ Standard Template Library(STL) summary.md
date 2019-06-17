@@ -15,7 +15,7 @@ C++ STL容器中常用的容器类型可以分为四类:
 + 顺序性容器: 提供对于数据的序列化访问
   + [vector](#1-vector)
   + [list](#2-list)
-  + deque
+  + [deque](#3-deque)
   + arrays
   + forward_list(c++11 引入)
 + 容器适配器: 提供了对于序列化数据的另一种访问接口
@@ -88,7 +88,7 @@ vector 上的常见操作复杂度（效率）如下：
 
   6. `shrink_to_fit()`: 通过释放未使用的内存减少内存的使用 
 
-+ 修改器
++ **修改器**
 
   1. `clear()`: 清除内容，不释放空间
 
@@ -124,6 +124,9 @@ void* memset( void* dest, int ch, std::size_t count );
 
 list是一个提供非连续存储的序列化容器，底层依赖于链表进行实现，相对于vector，对于元素的随机访问较慢，但是具有较快的插入删除速度。默认的list是一个双向链表，对于单向链表，对应于forward_list.**与forward_list相比，提供双向迭代，但是空间效率较低。**
 
++ 随机访问--O（n）
++ 插入删除--O(1)
+
 ## 2.1 成员函数
 
 + **构造函数**
@@ -152,7 +155,7 @@ list是一个提供非连续存储的序列化容器，底层依赖于链表进�
 
 + **容量**
 
-  1. empty()`:为空时返回1；否则返回0
+  1. `empty()`:为空时返回1；否则返回0
   2. `size`：元素数量
   3. `max_size`: 最多可容纳元素数量
 
@@ -205,3 +208,65 @@ list是一个提供非连续存储的序列化容器，底层依赖于链表进�
   6. `remove/ remove_if()`:移除某一个值，或者移除所有满足条件的值
 
   7. `emplace(const_iterator pos, Args&&... args)`:直接于pos前构造一个元素，使用传入的参数。使用new关键字；对应于双向链表，还有`emplace_front`, `emplace_back`.
+
+# 3. Deque
+
+Deque是一个双向队列，可以同时在队列头部以及尾部进行高效的读写，基本API与vector相似，但是添加了在头部的高速的`pop_front`,`push_front`.但是数据不一定存储在连续的空间，所以随机读入速度较慢。另外，在 deque 任一端插入或删除不会非法化指向其余元素的指针或引用。deque 的存储按需自动扩展及收缩。扩张 deque 比扩展 [std::vector](https://zh.cppreference.com/w/cpp/container/vector) 便宜，因为它不涉及到复制既存元素到新内存位置。另一方面， deque 典型地拥有较大的最小内存开销；只保有一个元素的 deque 必须分配其整个内部数组（例如 64 位 libstdc++ 上为对象大小 8 倍； 64 位 libc++ 上为对象大小 16 倍或 4096 字节的较大者）。
+
++ 随机访问--O（1）
++ 在头尾插入删除--O(1)
++ 插入或者移除--O(n)
+
+## 3.1 成员函数
+
++ **构造函数**
+  1. `deque(const Allocator& alloc)`: 默认构造函数
+  2. `deque(size_type count, const T& value)`:构造拥有`count`个值为`value`的deque
+  3. `deque（size_type count）`: 构造拥有`count`个默认值的deque
+  4. `deque（InputIt first, InputIt last）`:使用范围`[first, last)`内的元素初始化deque
+  5. `deque(const deque& other)`:复制构造函数
+  6. `deque(const deque&& other)`: move语义
+  7. `deque(std::initializer_list<T> init,)`:初始值的deque
+
++ **元素访问**
+  1. `at()`: 访问指定元素，进行越界检查
+  2. `[]`: 指针式访问
+  3. `front()`:首个元素
+  4. `back()`: 最后一个元素
+
++ **迭代器**(所有迭代器的end都是指向NULL, 迭代器支持指针的+, -操作)
+
+  1. `begin()/cbegin()`:返回指向容器首个元素的迭代器
+  2. `end()/cend()`:指向最后一个元素的迭代器
+  3. `rbegin()/crbegin()`:返回指向容器最后元素的逆向迭代器 
+  4. `rend()/crend()`: 返回指向前端的逆向迭代器 
+
++ **容量**
+
+  1. `empty()`:为空时返回1；否则返回0
+
+  2. `size`：元素数量
+
+  3. `max_size`: 最多可容纳元素数量
+
+  6. `shrink_to_fit()`: 通过释放未使用的内存减少内存的使用 
+
++ **修改器**
+
+  1. `clear()`: 清除内容，不释放空间
+
+  2. >`insert(iterator pos, const T& value)`: 在位置pos前插入value
+     >
+     >`insert(iterator pos, size_type count, const T& value)`: 在迭代器位置pos前插入`count`个`value`.
+     >
+     >`insert(iterator pos, InputIt first, InputIt last)`: 在位置pos插入一个序列
+
+  3. `erase`: 删除指定位置或者范围的元素，位置以及范围由迭代器指定。
+
+  4. `push_back`:元素插入末尾
+
+  5. `pop_back`: 末尾删除
+
+  6. `resize（size_type count, [const T& value]）`: 改变容器的元素数量；两种重载形式；如果count 小于size,则取前count个元素；否则以value或者默认值填充
+
+  7. `swap`: 交换两个vector
