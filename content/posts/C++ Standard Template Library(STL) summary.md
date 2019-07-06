@@ -1,7 +1,7 @@
 +++
 draft = false
 date = 2019-06-12
-title = "C++ Standard Template Library (STL)"
+title = "C++ Standard Template Library (STL)(part 1)"
 slug = "C++ Standard Template Library (STL)" 
 tags = ["Language"]
 categories = ["Summary"]
