@@ -5,12 +5,15 @@
     {{ end }}
     {{ if not .Site.Params.hideCopyright }} © {{ now.Format "2006" }}{{ end }}
     {{ if not .Site.Params.hideCredits }}
-      {{ if not .Site.Params.hideCopyright }} · {{ end }}
-      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      {{ if not .Site.Params.hideCopyright }}        
+      Author <a href="https://github.com/kobeHub">Inno Jia</a>
+      <div> · </div>
+      ICP 备案: <a href="http://www.beian.miit.gov.cn">鲁ICP备18009756号</a>
+      {{ end }}
     {{ end }}
     {{ if .Site.Params.commit }}
       {{ if or (not .Site.Params.hideCredits) (not .Site.Params.hideCopyright) }} · {{ end }}
-      [<a href="{{ .Site.Params.commit }}{{ getenv "GIT_COMMIT_SHA" }}">{{ getenv "GIT_COMMIT_SHA_SHORT" }}</a>]
+      <a href="{{ .Site.Params.commit }}{{ getenv "GIT_COMMIT_SHA" }}">{{ getenv "GIT_COMMIT_SHA_SHORT" }}</a>
     {{ end }}
   </section>
 </footer>
