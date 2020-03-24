@@ -2,7 +2,7 @@
 draft = false
 date = 2019-01-08T10:10:02+08:00
 title = "Record of build GitHub Pages use Hugo"
-slug = "record-of-build-github-pages-use-hugo" 
+slug = "record-of-build-github-pages-use-hugo"
 tags = ["Hugo", "tutorial"]
 categories = ["Record"]
 +++
@@ -37,21 +37,21 @@ go install
 ```shell
 hugo new site Hugo-site
 cd Hugo-site
-git init 
+git init
 ```
 
 该名称可以任意更换，然后添加新的主题。初始化git仓库后添加主题。可以采用`hugo-coder` 主题做为新的站点主题。
 
 ```shell
 git submodule add https://github.com/luizdepra/hugo-coder.git themes/hugo-coder
-cp themes/hugo-coder/exampleSite/config.toml  config.toml 
+cp themes/hugo-coder/exampleSite/config.toml  config.toml
 ```
 
 然后将样例站点的配置文件cp到主文件夹下，同时将`themes/hugo-coder` 文件夹下的`static`, `layouts` 文件夹复制到主目录下，进行内容的更换。
 
 ## 3. 编辑新的文章
 
-`hugo new posts/title.md` 
+`hugo new posts/title.md`
 
 hugo使用markdown进行文章书写，可以使用该命令建立一篇新的文章，新的文件出现在`content/posts/` 文件夹下。注意需要将文件头的`draft` 改为`false`,才可以正式发布。
 
@@ -70,7 +70,7 @@ hugo server -D
 首先写一个自动构建网站的脚本，每次有新的内容或者网站布局有所改变都可以使用该脚本推送到远程服务器。
 
 ```shell
-#!/bin/sh 
+#!/bin/sh
 
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
@@ -86,7 +86,7 @@ git commit -m "$msg"
 git push hugo master
 
 # Build the project
-hugo 
+hugo
 
 #Add public folder
 cd public
@@ -105,16 +105,15 @@ cd ..
 
 首先建立一个`yourgitname.github.io` 的仓库，然后转到设置，将该仓库设置为`github pages`,可以选择从`master`进行构建。
 
-![hugo](http://media.innohub.top/190108-hugo.png)
+![hugo](https://mediainter.innohub.top/190108-hugo.png)
 
 然后在主目录执行`hugo` 命令，此时会产生一个名为`public`的文件夹，这就是hugo产生的静态网站，可以被直接访问，现在将远程仓库与`public` 文件夹绑定在一起
 
 ```shell
-cd public 
-git init 
+cd public
+git init
 git remote add site  git@github.com:kobeHub/kobehub.github.io
 git push u site master
 ```
 
 同时建立一个防治Hugo文件的远程仓库`Hugo-site`, 将原本在主目录下的git仓库与该远程库绑定，现在已经配置完成，可以访问`kobeHub.github.io` 进行查看了。
-

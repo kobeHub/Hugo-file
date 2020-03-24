@@ -2,7 +2,7 @@
 draft = false
 date = 2019-05-17T22:39:33+08:00
 title = "[Review] Image Preprocess"
-slug = "Image Preprocess" 
+slug = "Image Preprocess"
 tags = ["Review"]
 categories = ["CV"]
 
@@ -77,7 +77,7 @@ $$
 >
 > 2次垂直， 1此水平
 
-  
+
 
 - 双三次插值：假设每一个像素间的颜色分布为三次函数分布，需要确定一个一元三次方程的四个参数，只需要四个点即可
 
@@ -91,7 +91,7 @@ $$
   >
   > b(x, y) = x + y0
 
-  
+
 
 - 放缩：不是一一映射，为了避免“方块效应”，需要插值操作
 
@@ -108,7 +108,7 @@ $$
   > b(x, y) = xsin(\theta) + ycos(\theta)
   > $$
 
-  
+
 
 - 仿射变换
 
@@ -143,17 +143,17 @@ $$
 
 2. 对数变换，$s = c×log(1+r)$ 其c为常数，r非负。
 
-   ![](http://media.innohub.top/190517-bm.png)
+   ![](https://mediainter.innohub.top/190517-bm.png)
 
-   
+
 
 3. 幂律变换，$s = c × r^\gamma$, 即Gamma纠正，其中$x, \gamma$均为正实数
 
-   ![不同的gamma纠正](http://media.innohub.top/190517-gam1.png)
+   ![不同的gamma纠正](https://mediainter.innohub.top/190517-gam1.png)
 
    $\gamma$大于1，压缩暗部，增强亮部（**整体亮度减低**）；小于1，压缩亮部（**整体亮度提高**），增强暗部。用以改变对比度。灰度值变换函数的基本要求：连续的增函数，保证变换后从白到黑的顺序不变。
 
-   
+
 
 #### 对比度调整
 
@@ -184,4 +184,3 @@ $$
 1. 归一化，将所有的离散灰度等级进行归一化
 2. 每一个累加归一化后的值乘以（L-1）,L为灰度等级，取最近的灰度级作为结果
 3. 根据原始的灰度等级以及2中的结果进行映射，得到最终的灰度直方图
-

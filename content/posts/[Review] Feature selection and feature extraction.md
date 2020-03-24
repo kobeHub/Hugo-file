@@ -1,8 +1,8 @@
-+++ 
++++
 draft = false
 date = 2019-01-12T23:50:37+08:00
 title = "[Review] Feature selection and feature extraction"
-slug = "[Review] Feature selection and feature extraction" 
+slug = "[Review] Feature selection and feature extraction"
 tags = ["Review"]
 categories = ["Machine Learning"]
 +++
@@ -41,7 +41,7 @@ $x = [x_1, x_2, ..., x_l]^T$
 + 对于特征子集进行评估
 + 观察是否达到临界条件，达到即可以使用，否则继续上述操作
 
-![selection](http://media.innohub.top/190112-fea.png)
+![selection](https://mediainter.innohub.top/190112-fea.png)
 
 
 
@@ -128,18 +128,18 @@ LDA是Fisher Linear Discriminant（费舍尔线性判别式）的推广。
 
 *特点：*
 
-+ 对于C类的数据，最多只能提取到C-1维的新特征，会有信息损失           
-+ LDA要求数据服从高斯分布          
-+ 由于是通过训练集类别标签引导获得的特征，在分类时容易存在overfitting（过拟合） 现象。 
++ 对于C类的数据，最多只能提取到C-1维的新特征，会有信息损失
++ LDA要求数据服从高斯分布
++ 由于是通过训练集类别标签引导获得的特征，在分类时容易存在overfitting（过拟合） 现象。
 
 
-### 3.3 Kernel-PCA 
+### 3.3 Kernel-PCA
 
 对于线性组合无法获得最优特征表示的数据，kernel-PCA是PCA方法的扩展，利用核函数，可以将原始空间的特征映射到一个高维的再生核希尔伯特空间，在新的空间中再利用线性PCA提取特征。属于非线性变换。
 
 目标函数比较：
 
-![target](http://media.innohub.top/190112-pca.png)
+![target](https://mediainter.innohub.top/190112-pca.png)
 
 经过$\phi(x)$的高维变换，再计算其内积，结果太高，计算复杂度较高。高维空间的向量内积使用低维空间的核函数。
 
@@ -159,7 +159,7 @@ LDA是Fisher Linear Discriminant（费舍尔线性判别式）的推广。
 
 流形空间是在局部与欧式空间同胚的空间，换言之，他在局部具有欧式空间的性质，可以使用欧氏距离进行距离计算。其数据分布进过可视化表示通常呈现为流体形。对于流形数据，任意两个数据间的距离都需要沿着曲面计算，不可以使用欧氏距离。
 
-![isomap](http://media.innohub.top/190112-is.png)
+![isomap](https://mediainter.innohub.top/190112-is.png)
 
 
 

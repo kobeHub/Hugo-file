@@ -2,7 +2,7 @@
 draft = false
 date = 2019-07-06T15:50:20+08:00
 title = "Python type 以及 object详解"
-slug = "Python type 以及 object详解" 
+slug = "Python type 以及 object详解"
 tags = ["Language"]
 categories = ["Python"]
 
@@ -99,7 +99,7 @@ True
 
 可以惊喜的看到，`object, type`的类型都是`type`,而`type`的基类是`object`,**所以二者互为对方的实例，同时由于双箭头的存在，所以他们自身又是自身的实例。**
 
-![type and object](http://media.innohub.top/190706-py.png)
+![type and object](https://mediainter.innohub.top/190706-py.png)
 
 ### 2.2 类型对象
 
@@ -126,7 +126,7 @@ True
 
 ### 2.3 更多内置类型
 
-![list dict tuple](http://media.innohub.top/190706-ty.png)
+![list dict tuple](https://mediainter.innohub.top/190706-ty.png)
 
 python还有很多其他的原始类型，他们都继承自`object`,同时是`type`的一种实现，都是类型对象。
 
@@ -159,12 +159,12 @@ class AtheletList(list):
 ```python
 >>> class A:
 ...     pass
-... 
+...
 >>> type(A)
 <class 'type'>
 >>> class B(A):
 ...     pass
-... 
+...
 >>> type(B)
 <class 'type'>
 
@@ -184,7 +184,7 @@ class AtheletList(list):
 
 *最终的对象图谱：*
 
-![object map](http://media.innohub.top/190706-map.png)
+![object map](https://mediainter.innohub.top/190706-map.png)
 
 可以把对象分为三类:
 

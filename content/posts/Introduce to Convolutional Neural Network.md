@@ -2,7 +2,7 @@
 draft = false
 date = 2019-01-22T23:13:21+08:00
 title = "Introduce to Convolutional neural network"
-slug = "Introduce to CNN" 
+slug = "Introduce to CNN"
 tags = ["CNN"]
 categories = ["Deep Learning"]
 +++
@@ -35,7 +35,7 @@ categories = ["Deep Learning"]
 
 并且在最后一层（全连接层）仍然具有损失函数(SVM/Softmax) 	ConvNet体系结构明确地假设输入是图像，这允许我们将某些属性编码到体系结构中。这些使得forward 函数　更有效地实施并极大地减少了网络中的参数数量
 
-![tri-nural](http://media.innohub.top/full.png)
+![tri-nural](https://mediainter.innohub.top/full.png)
 
 ## 2.与全连接神经网络的比较
 
@@ -69,7 +69,7 @@ categories = ["Deep Learning"]
 
 > *Example 2*. Suppose an input volume had size [16x16x20]. Then using an example receptive field size of 3x3, every neuron in the Conv Layer would now have a total of 3*3*20 = 180 connections to the input volume. Notice that, again, the connectivity is local in space (e.g. 3x3), but full along the input depth (20).
 
-​	    ![l1](http://media.innohub.top/180502-l1.png)
+​	    ![l1](https://mediainter.innohub.top/180502-l1.png)
 
 ## 2.local  region * input volume   求点积
 
@@ -79,23 +79,23 @@ categories = ["Deep Learning"]
 + 将三个暂时结果相加同时加上误差值 bias 得到卷积层的对应位置的值
 + 按一定的步长平移filter　重复以上步骤，每多一个filter卷积层的depth就＋１
 
-![mul1](http://media.innohub.top/180502-mul1.png)
+![mul1](https://mediainter.innohub.top/180502-mul1.png)
 
 卷积层０的第一个元素计算：
 
 s1 = 1\*1 + 1\*1+ 1\*1
 
-s2 = 2\*1 + 1\*1 
+s2 = 2\*1 + 1\*1
 
-s3 = 2\*1 + 1\*1 
+s3 = 2\*1 + 1\*1
 
 output[0, 0, 0] = s1 + s2 +s3 +bias = 10
 
 其他计算类似最终得到　［3, 3, 2］的卷积层输出
 
-![mul2](http://media.innohub.top/180502-mul2.png)
+![mul2](https://mediainter.innohub.top/180502-mul2.png)
 
-![计算单层卷积](http://media.innohub.top/180502-l3.png)
+![计算单层卷积](https://mediainter.innohub.top/180502-l3.png)
 
 ## 3.空间排列 Spatial arrangement
 
@@ -119,7 +119,7 @@ output[0, 0, 0] = s1 + s2 +s3 +bias = 10
 
 **在选用过滤器移动步长时应该慎重考虑，否则会造成输入卷无法被filer均分,即在公式`(W-F+2P)/S +1` 计算得到的不是整数，此时会报出错误或者添加一个0界使其满足要求**
 
-![l2](http://media.innohub.top/180502-l2.png)
+![l2](https://mediainter.innohub.top/180502-l2.png)
 
 
 
@@ -148,7 +148,7 @@ output[0, 0, 0] = s1 + s2 +s3 +bias = 10
 	55*55*96 = 290,400
 对于每个神经元都需要 11*11*3 = 363个weights以及一个bias
 故总参数数目为：
-	364*290400 = 105,705,600 
+	364*290400 = 105,705,600
 ```
 
 根据以上分析可知，参数的数目很大．如果１中的两个假设成立，将会极大地减少参数数量．根据特征的平移不变性，对于单个二维深度切片（大小为［５５，５５，９６］的卷具有９６个深度切片每个大小为［５５，５５］）．限制每个深度切片中的神经元使用相同的权重和偏差
@@ -172,24 +172,24 @@ output[0, 0, 0] = s1 + s2 +s3 +bias = 10
 
 ```python
 tf.layers.conv2d(
-    inputs, 
-    filters, 
-    kernel_size, 
-    strides=(1, 1), 
-    padding='valid', 
-    data_format='channels_last', 
-    dilation_rate=(1, 1), 
-    activation=None, 
-    use_bias=True, 
-    kernel_initializer=None, 
-    bias_initializer=<tensorflow.python.ops.init_ops.Zeros object at 0x7ff604fc7128>, 
-    kernel_regularizer=None, 
-    bias_regularizer=None, 
-    activity_regularizer=None, 
-    kernel_constraint=None, 
-    bias_constraint=None, 
-    trainable=True, 
-    name=None, 
+    inputs,
+    filters,
+    kernel_size,
+    strides=(1, 1),
+    padding='valid',
+    data_format='channels_last',
+    dilation_rate=(1, 1),
+    activation=None,
+    use_bias=True,
+    kernel_initializer=None,
+    bias_initializer=<tensorflow.python.ops.init_ops.Zeros object at 0x7ff604fc7128>,
+    kernel_regularizer=None,
+    bias_regularizer=None,
+    activity_regularizer=None,
+    kernel_constraint=None,
+    bias_constraint=None,
+    trainable=True,
+    name=None,
     reuse=None)
 ```
 
@@ -209,7 +209,7 @@ This layer creates a convolution kernel that is convolved
 
 + `stride`:包含两个整数的元组或者列表，确定卷积核在width  height方向上每次移动的步长，可以是单个整数确定两个方向上的移动
 
-+ `padding`: 可以取值 `'valid'`  or  `'same'` 
++ `padding`: 可以取值 `'valid'`  or  `'same'`
 
   使用`valid`选项会舍弃input volume中的多余的元素列或者行使之满足步长要求
 
@@ -227,4 +227,3 @@ w[0]*x[0] + w[1]*x[1] + w[2]*x[2].
 dilation_rate = 2时：
  w[0]*x[0] + w[1]*x[2] + w[2]*x[4]
 ```
-

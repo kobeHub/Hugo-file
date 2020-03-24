@@ -2,7 +2,7 @@
 draft = false
 date = 2019-01-14T12:01:51+08:00
 title = "[Review] Support Vector Machine"
-slug = "[Review] Support Vector Machine" 
+slug = "[Review] Support Vector Machine"
 tags = ["Review"]
 categories = ["Machine Learning"]
 +++
@@ -31,14 +31,14 @@ $$
 $$
 **支持向量：** 距离超平面最小的训练样本使得等号成立，被称为支持向量
 
-**Margin: $\gamma = \frac{2}{||w||}$,** 
+**Margin: $\gamma = \frac{2}{||w||}$,**
 
 **Target**:最大化margin
 
 为了找到具有最大间隔的超平面，使用以下**目标函数**：
 $$
 \begin{align}
-& min_{w,b} \frac{1}{2} ||w||^2   \qquad (1) 
+& min_{w,b} \frac{1}{2} ||w||^2   \qquad (1)
  \\\\ & s.t. y_i(w^Tx_i+b) \ge 1, \qquad i=1,2,...,m
  \end{align}
 $$
@@ -53,7 +53,7 @@ $$
 这是一个凸二次规划问题**（Convex Quadratic Problem）**,可以通过现有的优化包进行计算，也可以使用其对偶问题进行更高效的计算。对于目标函数(1)每一条约束添加拉格朗日乘子$\alpha_i \ge 0$,问题的拉格朗日展开可写作：
 
 $$
-L(w, b, \alpha ) = \frac {1}{2} ||w||^2 + \sum _{i = 1}^m \alpha _i(1-y _i(w^Tx _i  +b))  \qquad (a) 
+L(w, b, \alpha ) = \frac {1}{2} ||w||^2 + \sum _{i = 1}^m \alpha _i(1-y _i(w^Tx _i  +b))  \qquad (a)
 $$
 
 分别对于$w, b$求偏导可以得到：
@@ -61,8 +61,8 @@ $$
 $$
 \begin{align}
 & \frac { \partial L}{ \partial w} = w - \sum _{i=1}^m \alpha _i y_i x_i  \\
-\\\\ & \frac{ \partial L}{ \partial b} = - \sum _{i=1}^m \alpha _i y_i  \\  
-\\\\ & 分别令其等于0： 
+\\\\ & \frac{ \partial L}{ \partial b} = - \sum _{i=1}^m \alpha _i y_i  \\
+\\\\ & 分别令其等于0：
 \\\\ & w = \sum _{i=1}^m \alpha _i y_i x_i  \\
 \\\\ & 0 = \sum _{i=1}^m \alpha _i y_i
  \end{align}
@@ -72,8 +72,8 @@ $$
 
 $$
 \begin{align}
-& max_{ \alpha } \sum _{i=1}^m \alpha _i - \frac{1}{2} \sum _{i = 1}^m \sum _{j=1}^m \alpha _i \alpha _j y_i y_j x_i^T x_j  \qquad (D) 
-\\\\ & s.t. \sum _{i=1}^m \alpha _i y_i = 0 
+& max_{ \alpha } \sum _{i=1}^m \alpha _i - \frac{1}{2} \sum _{i = 1}^m \sum _{j=1}^m \alpha _i \alpha _j y_i y_j x_i^T x_j  \qquad (D)
+\\\\ & s.t. \sum _{i=1}^m \alpha _i y_i = 0
 \\\\ & \alpha _i \ge 0 ,i=  1, 2,,.., m
 \end{align}
 $$
@@ -81,8 +81,8 @@ $$
 求解出$\alpha$后，代入求解$w, b$即可得到模型。但是需要满足KKT（**Karush-Kuhn-Tucker**）条件：
 $$
 \begin{cases}
-\alpha_i \ge 0 
-\\\\ y_i f(x_i) - 1 \ge 0 
+\alpha_i \ge 0
+\\\\ y_i f(x_i) - 1 \ge 0
 \\\\ \alpha _i (y_i f(x_i) - 1)  = 0
 \end{cases}
 $$
@@ -108,8 +108,8 @@ $$
 
 $$
 \begin{align}
-& max_{\alpha} \sum _{i=1}^m \alpha _i - \frac{1}{2} \sum _{i = 1}^m \sum _{j=1}^m \alpha _i \alpha _j y_i y_j k(x_i, x_j)  \qquad (D) 
-\\\\ & s.t. \sum _{i=1}^m \alpha _i y_i = 0 
+& max_{\alpha} \sum _{i=1}^m \alpha _i - \frac{1}{2} \sum _{i = 1}^m \sum _{j=1}^m \alpha _i \alpha _j y_i y_j k(x_i, x_j)  \qquad (D)
+\\\\ & s.t. \sum _{i=1}^m \alpha _i y_i = 0
 \\\\ & \alpha _i \ge 0 ,i=  1, 2,,.., m
 \end{align}
 $$
@@ -117,7 +117,7 @@ $$
 求解后可以得到：
 
 $$
- \begin{align} 
+ \begin{align}
  f(x)& =  w^T \phi(x) + b
  \\\\ & = \sum _{i=1}^m \alpha _i y_i  \phi (x_i)^T \phi (x_j) + b
  \\\\ & = \sum _{i=1}^m \alpha _i y_i k(x_i,x_j) + b
@@ -136,7 +136,7 @@ $$
 
 *文本数据通常采用线性核，不明数据先采用高斯核；任意核函数的线性组合，直积，都是核函数*
 
-## 4. Soft Margin 
+## 4. Soft Margin
 
 现实任务中很难判断样本在特征空间是否线性可分，即使找到了某个核函数使得其线性可分，也无法判断该结果是否由于过拟合造成。所以可以允许一些样本在SVM上错分，在margin附近的样本允许有有部分**不严格满足**约束条件。这样的间隔称之为**软间隔（soft margin）**.
 
@@ -159,7 +159,7 @@ $$
 引入松弛变量$\xi_i = l _{hinge}(y_i(w^Tx_i+b)-1) = max(0, 1 - y_i(w^Tx_i+b))$ ,那么目标函数可以改写为：
 
 $$
-min_{w, b}\frac{1}{2}||w||^2 + C \sum _{i = 1}^m \xi _i \qquad (T1) 
+min_{w, b}\frac{1}{2}||w||^2 + C \sum _{i = 1}^m \xi _i \qquad (T1)
 \\\\ s.t.y_i(w^Tx_i+b) \ge 1- \xi _i,\ \qquad  \xi_i \ge 0,\qquad i=1,2,...,m
 $$
 
@@ -174,8 +174,8 @@ $$
 **求偏导：**
 
 $$
-w = \sum_{i=1}^m \alpha_iy_ix_i  
-\\\\ 0 = \sum _{i=1}^m \alpha _i y_i 
+w = \sum_{i=1}^m \alpha_iy_ix_i
+\\\\ 0 = \sum _{i=1}^m \alpha _i y_i
 \\\\ C = \alpha _i + \mu _i
 $$
 
@@ -183,8 +183,8 @@ $$
 
 $$
 \begin{align}
-& max_{\alpha} \sum _{i=1}^m \alpha _i - \frac{1}{2} \sum _{i = 1}^m \sum _{j=1}^m \alpha _i \alpha _j y_i y_j x_i^T x_j  \qquad (D1) 
-\\\\ & s.t. \sum _{i=1}^m \alpha _i y_i = 0 
+& max_{\alpha} \sum _{i=1}^m \alpha _i - \frac{1}{2} \sum _{i = 1}^m \sum _{j=1}^m \alpha _i \alpha _j y_i y_j x_i^T x_j  \qquad (D1)
+\\\\ & s.t. \sum _{i=1}^m \alpha _i y_i = 0
 \\\\ & 0\le \alpha _i \le C ,i=  1, 2,,.., m
 \end{align}
 $$
@@ -193,9 +193,9 @@ $$
 
 $$
 \begin{cases}
-\alpha_i \ge 0, \mu _i \ge 0 
-\\\\ y_i f(x_i) - 1+ \xi _i \ge 0 
-\\\\ \alpha _i (y_i f(x_i) - 1 + \xi _i)  = 0 
+\alpha_i \ge 0, \mu _i \ge 0
+\\\\ y_i f(x_i) - 1+ \xi _i \ge 0
+\\\\ \alpha _i (y_i f(x_i) - 1 + \xi _i)  = 0
 \\\\ \xi _i \ge 0, \mu _i \xi _i =0
 \end{cases}
 $$
@@ -207,7 +207,7 @@ $$
 >    + $0 \ge \xi _i \le 1$,样本点位于margin内部被正确分类
 >    + $\xi _i > 1$,样本位于margin之外，分类错误
 
-![soft margin](http://media.innohub.top/190114-soft.png)
+![soft margin](https://mediainter.innohub.top/190114-soft.png)
 
 
 
@@ -215,9 +215,8 @@ $$
 
 ## 5. 支持向量回归
 
-**Support Vector Regression**，与传统的回归模型不同，允许预测值与真实值之间存在$\epsilon$ 的偏差，**也就是说当预测值与真实值的差的绝对值大于 $\epsilon$  时才计算损失** 
+**Support Vector Regression**，与传统的回归模型不同，允许预测值与真实值之间存在$\epsilon$ 的偏差，**也就是说当预测值与真实值的差的绝对值大于 $\epsilon$  时才计算损失**
 
 也就是说，在以$f(x)$为中心，构建了一条宽度为$2\epsilon$ 的margin，当样本落入其中时，则认为预测正确。
 
-![regression](http://media.innohub.top/190114-reg.png)
-
+![regression](https://mediainter.innohub.top/190114-reg.png)

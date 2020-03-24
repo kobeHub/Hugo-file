@@ -1,8 +1,8 @@
-+++ 
++++
 draft = false
 date = 2019-01-14T20:23:39+08:00
 title = "[Review] Neural Networks"
-slug = "[Review] Neural Networks" 
+slug = "[Review] Neural Networks"
 tags = ["Review"]
 categories = ["Machine Learning"]
 +++
@@ -24,7 +24,7 @@ categories = ["Machine Learning"]
 $$
 sgn(x)= \begin{cases}
 1, & x \geq 0;
-\\\\ 
+\\\\
 0, & x < 0;
 \end{cases}
 \\\\y= \begin{cases}
@@ -57,7 +57,7 @@ $$
 
 ### 1.4 Deep learning
 
-Hinton提出了深度信念网络的神经网络,可以训练更深的网络，由此提出了深度学习的概念 
+Hinton提出了深度信念网络的神经网络,可以训练更深的网络，由此提出了深度学习的概念
 
 举例：略
 
@@ -87,7 +87,7 @@ $$
 \\\\ \vec{b} \leftarrow \vec{w}-\eta \nabla E
 $$
 
-## 4. Back propagation 
+## 4. Back propagation
 
 神经网络中使用最为广泛的学习算法。使用链式法则，对于网络中的所有参数都可以从后向前依次求解梯度，然后进行更新。现在以一个单隐层的全连接网络为例,使用sigmoid激活函数，损失函数使用均方差，学习率为$\eta$：
 
@@ -98,7 +98,7 @@ $$
 + 输出层的输入：$\beta _i$
 + output: $\hat{y}_i$
 
-![bp](http://media.innohub.top/190114-bp.png)
+![bp](https://mediainter.innohub.top/190114-bp.png)
 
 $$
 E = \frac{1}{2} \sum _{j=1} ^3 (\hat{y_j} - y_j)^2$$
@@ -112,7 +112,7 @@ $$\alpha _3 = \sum _{k=1}^3  w _{k3}^{(1)} x_k$$
 
 $$
 w _{32}^{(2)} \leftarrow w _{32}^{(2)} - \eta \frac{\partial E }{\partial w _{32}^{(2)}}
-$$ 
+$$
 
 
 
@@ -127,8 +127,8 @@ $$
 求E对h3的梯度继续使用链式法则：
 
 $$
-\begin{align} \frac{\partial E}{\partial h_3} 
-& = \sum _{j=1}^3 \frac{\partial \beta _j}{\partial h_3} . \frac{ \partial E}{ \partial \beta _j} 
+\begin{align} \frac{\partial E}{\partial h_3}
+& = \sum _{j=1}^3 \frac{\partial \beta _j}{\partial h_3} . \frac{ \partial E}{ \partial \beta _j}
  \\\\  & = \sum _{j=1}^3 w _{3j}^{(2)} g_j
 \end{align}
 $$
@@ -136,10 +136,10 @@ $$
 $h_3对于\alpha _3$的梯度，同样使用链式法则，同时由于sigmoid函数的导数具有以下性质:$f^\' = f(x)f(1-x) $:
 
 $$
-\begin{align} 
-\frac{ \partial h_3}{ \partial \alpha _3} 
-& = f'( \alpha _3 - b _3^{(1)}) 
-\\\\ & = f( \alpha _3 - b _3^{(1)})(1 - f( \alpha _3 - b _3^{(1)})) 
+\begin{align}
+\frac{ \partial h_3}{ \partial \alpha _3}
+& = f'( \alpha _3 - b _3^{(1)})
+\\\\ & = f( \alpha _3 - b _3^{(1)})(1 - f( \alpha _3 - b _3^{(1)}))
 \\\\ & = h_3(1- h_3)
 \end{align}
 $$
@@ -160,7 +160,7 @@ $$
 
 均方差损失函数和sigmoid函数结合使用效果不好，因为存在梯度消失的问题.
 
-## 5. Softmax 
+## 5. Softmax
 
 对于多分类问题，在输出层通常使用softmax,进行分类，当然可以使用任意的分类器，只要可以满足需求。
 
@@ -177,7 +177,7 @@ $$
 
 ### 6.2 Parameter Sharing
 
-形象地说，就如同你的某个神经中枢中的神经细胞，它们的结构、功能是相同的，甚至是可以互相替代的特征和形式不管在哪个位置，其实他们都是一样的，不会因为位置的改变而改变，所以可以用共用一套参数 
+形象地说，就如同你的某个神经中枢中的神经细胞，它们的结构、功能是相同的，甚至是可以互相替代的特征和形式不管在哪个位置，其实他们都是一样的，不会因为位置的改变而改变，所以可以用共用一套参数
 
 ### 6.3 Padding
 
@@ -194,4 +194,3 @@ S： Strides
 
 
 [详情](http://www.innohub.top/cnn-base/#more-160)
-

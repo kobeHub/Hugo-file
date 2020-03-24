@@ -1,8 +1,8 @@
-+++ 
++++
 draft = false
 date = 2019-01-14T15:35:50+08:00
 title = "[Review] Regression"
-slug = "[Review] Regression" 
+slug = "[Review] Regression"
 tags = ["Review"]
 categories = ["Machine Learning"]
 +++
@@ -45,11 +45,11 @@ $$
 $$
 f(x_i) = w^T x_i + b
 $$
-可以把参数$w^T ,b吸收入向量的形式 \hat{w} = (w^T; b)$,同时把数据集D表示为一个`m * (d+1)` 的矩阵形式，其中每一行代表一个样本，每一列代表一个属性，同时把标记也写作向量形式 `m * 1` 
+可以把参数$w^T ,b吸收入向量的形式 \hat{w} = (w^T; b)$,同时把数据集D表示为一个`m * (d+1)` 的矩阵形式，其中每一行代表一个样本，每一列代表一个属性，同时把标记也写作向量形式 `m * 1`
 
 **优化目标：**
 $$
-\hat{w} = argmin _{ \hat{w} } (y-X \hat {w})^T (y - X \hat {w}) 
+\hat{w} = argmin _{ \hat{w} } (y-X \hat {w})^T (y - X \hat {w})
 \\\\ E _{ \hat {w}} = (y-X \hat {w}) ^T(y - X \hat {w})
 $$
 **求偏导：**
@@ -60,7 +60,7 @@ $$
 $$
 \hat{w}^* = (X^TX)^{-1}X^Ty
 $$
-但现实任务往往不是满秩矩阵（没有一行或者一列为０），就会有多个解，这是需要使用正则化的方法。使用正则化技术，减少特征前面的参数w的大小，具体就是修改线性回归中的损失函数形式即可，岭回归以及Lasso回归就是这么做的。或者丢弃一些对我们最终预测结果影响不大的特征，具体哪些特征需要丢弃可以通过PCA算法来实现；	
+但现实任务往往不是满秩矩阵（没有一行或者一列为０），就会有多个解，这是需要使用正则化的方法。使用正则化技术，减少特征前面的参数w的大小，具体就是修改线性回归中的损失函数形式即可，岭回归以及Lasso回归就是这么做的。或者丢弃一些对我们最终预测结果影响不大的特征，具体哪些特征需要丢弃可以通过PCA算法来实现；
 
 ## 3.最小二乘法的缺点
 
@@ -69,7 +69,7 @@ $$
 
 ## 4. 范数Norm
 
-![norm](http://media.innohub.top/190114-norm.png)
+![norm](https://mediainter.innohub.top/190114-norm.png)
 
 
 
@@ -103,7 +103,7 @@ E_{\hat{w}} = (y-X \hat{w})^T(y - X\hat{w}) + \lambda||\hat{w}||_1  \qquad \lamb
 $$
 **在求解lasso回归的$\hat{w}$时要注意，不能用损失函数对其求导，因为一范数在0点处导数不存在。以y=|w|为例，w属于实数范围，在w=0点处，y的左导数是-1，右导数是1，左右导数不想等，所以不能对lasso回归的损失函数求导**
 
- **使用proximal gradient descent method(近端梯度下降法)** 
+ **使用proximal gradient descent method(近端梯度下降法)**
 
 使用lasso回归的主要特点在于解的大部分元素是0，而以此作为参数进行线性回归，对于为0的特征进行了忽略，所以可以进行特征选择，选出重要特征。
 
@@ -160,11 +160,11 @@ $$
 + 一对其他
 + 多对多
 
-![to1](http://media.innohub.top/190114-to1.png)
+![to1](https://mediainter.innohub.top/190114-to1.png)
 
-![ton](http://media.innohub.top/190114-ton.png)
+![ton](https://mediainter.innohub.top/190114-ton.png)
 
-![com](http://media.innohub.top/190114-com.png)
+![com](https://mediainter.innohub.top/190114-com.png)
 
 ### 类别不平衡
 

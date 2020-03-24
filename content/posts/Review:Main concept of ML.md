@@ -2,7 +2,7 @@
 draft = false
 date = 2019-01-12T17:43:29+08:00
 title = "[Review] Main concept of ML"
-slug = "[Review] Main concept of ML" 
+slug = "[Review] Main concept of ML"
 tags = ["Review"]
 categories = ["Machine Learning"]
 +++
@@ -186,13 +186,13 @@ categories = ["Machine Learning"]
 
   ROC曲线下的面积AUC(Area Under ROC Curve)
 
-  
+
 
   ![](http://latex.codecogs.com/gif.latex?TPR=\\frac{TP}{TP+FN}=R)
 
   ![](http://latex.codecogs.com/gif.latex?FPT=\\frac{FP}{FP+TN})
 
-  ![ROC](http://media.innohub.top/190112-roc.png)
+  ![ROC](https://mediainter.innohub.top/190112-roc.png)
 
 ## 11. 比较检验
 
@@ -202,11 +202,10 @@ categories = ["Machine Learning"]
 
 + 方差（Variance）: 度量了同样大小训练集的变动所导致的学习性能的变化；即刻画了数据扰动所造成的影响
 
-  ![bias and variance](http://media.innohub.top/190112-bv.png)
+  ![bias and variance](https://mediainter.innohub.top/190112-bv.png)
 
 ### 二者关系
 
 + 在训练不足时，学习器拟合能力不强，训练数据的扰动产生的影响小，此时偏差主导泛化错误率；
 + 随着训练程度加深，学习器拟合能力逐渐增强，方差逐渐主导泛化错误率
 + 训练充足后，学习器的拟合能力非常强，训练数据的轻微扰动都会导致学习器的显著变化，容易发生过拟合。
-
